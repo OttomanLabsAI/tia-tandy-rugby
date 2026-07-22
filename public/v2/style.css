@@ -231,6 +231,10 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
   margin-top:26px;padding:14px 18px;border-left:4px solid var(--gold);
   background:var(--panel);font-size:15px;color:var(--muted);border-radius:0 6px 6px 0;
 }
+.prose{max-width:780px}
+.prose p{margin-bottom:20px;font-size:17.5px}
+.prose p:last-child{margin-bottom:0}
+.prose a{color:var(--gold)}
 
 /* ---- placeholders ---- */
 .ph-frame,.bio-photo{
