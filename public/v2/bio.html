@@ -23,7 +23,8 @@
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-inner">
     <a class="brand" href="/v2/"><span class="brand-mark" aria-hidden="true">TT</span><span class="brand-text">Tia Tandy<small>Rugby</small></span></a>
-    <ul class="menu">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu"><span aria-hidden="true">&#9776;</span> Menu</button>
+    <ul class="menu" id="site-menu">
       <li><a href="/v2/bio.html">Bio</a></li>
       <li>
         <details class="dd">
@@ -114,6 +115,7 @@
 </footer>
 <script>
 // One dropdown open at a time; click outside closes them.
+// On small screens the menu collapses behind the Menu button.
 (function(){
   var dds = document.querySelectorAll('details.dd');
   dds.forEach(function(d){
@@ -123,6 +125,13 @@
   });
   document.addEventListener('click', function(e){
     dds.forEach(function(d){ if (d.open && !d.contains(e.target)) d.open = false; });
+  });
+  var t = document.querySelector('.nav-toggle');
+  var m = document.getElementById('site-menu');
+  if (t && m) t.addEventListener('click', function(){
+    var open = t.getAttribute('aria-expanded') === 'true';
+    t.setAttribute('aria-expanded', String(!open));
+    m.classList.toggle('open', !open);
   });
 })();
 </script>
