@@ -5,11 +5,15 @@ Dartford. No build step, no dependencies. Two versions live side by
 side, linked by a tab strip at the top of every page:
 
 - **Version 1** — the original one-pager, `public/index.html`.
+  **Frozen by owner instruction**: do not change it beyond the version
+  tab strip that links the two versions, unless the owner explicitly
+  asks.
 - **Version 2** — a multi-page site with dropdown navigation under
   `public/v2/` (front page, bio, one page per club, pictures,
-  sponsors, My Rugby Life, videos). Pages share `public/v2/style.css`;
-  photo/video/stat placeholders are filled in as the client supplies
-  material.
+  sponsors, My Rugby Life, videos), styled black-and-gold to the
+  client's mock. Pages share `public/v2/style.css`; photo/video/stat
+  placeholders are filled in as the client supplies material. All
+  ongoing site work happens here.
 
 ## Deployment
 
