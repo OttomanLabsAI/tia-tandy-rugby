@@ -179,10 +179,10 @@ a{color:inherit}
   font-family:var(--varsity);font-size:200px;color:var(--ink-soft);
   user-select:none;pointer-events:none;line-height:1;
 }
+.hero-photo{overflow:hidden}
 .hero-photo img{
-  position:relative;z-index:1;
-  width:88%;max-height:560px;object-fit:contain;object-position:bottom;
-  filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));
+  position:absolute;inset:0;z-index:1;
+  width:100%;height:100%;object-fit:cover;object-position:center 30%;
 }
 .pos-tag{
   position:absolute;z-index:2;top:22px;left:22px;
@@ -287,6 +287,16 @@ section{padding:96px 0}
 .code-panel.union .club{color:#A9B2C7}
 .code-panel.league .club{color:var(--muted)}
 .code-panel p{font-size:16.5px;line-height:1.6}
+
+/* ---- watch ---- */
+#watch{background:var(--chalk)}
+.video-frame{
+  aspect-ratio:16/9;background:var(--ink);
+  border:3px solid var(--ink);border-bottom:10px solid var(--red);
+}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
+.pcard.photo{padding:0;overflow:hidden;line-height:0}
+.pcard.photo img{width:100%}
 
 /* ---- sponsorship ---- */
 #sponsorship{background:var(--green);color:var(--chalk);position:relative}
@@ -417,6 +427,7 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
       <li><a href="#story">The Story</a></li>
       <li><a href="#journey">The Journey</a></li>
       <li><a href="#codes">Two Codes</a></li>
+      <li><a href="#watch">Watch</a></li>
       <li><a href="#follow">Follow</a></li>
     </ul>
     <a class="nav-cta" href="#sponsorship">Sponsor Tia</a>
@@ -434,8 +445,8 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
       </h1>
       <div class="tryline" aria-hidden="true"></div>
       <p class="hero-sub">
-        An 18-year-old hooker playing senior rugby in <strong>both codes</strong> —
-        union with Thurrock T-Birds, league with London Broncos — with one goal:
+        An 18-year-old dual-code hooker making her <strong>senior debut</strong> for
+        Thurrock T-Birds in the Women&rsquo;s Championship — with one goal:
         the top of the game.
       </p>
       <div class="hero-ctas">
@@ -446,16 +457,16 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
     <div class="hero-photo">
       <span class="watermark" aria-hidden="true">TT</span>
       <span class="pos-tag">Hooker &middot; Front Row</span>
-      <!-- NOTE: headshot is hotlinked from the Broncos CDN for this draft — self-host before launch -->
-      <img src="https://pub-aff4a9ebf2614b9f8df3663077c0b66a.r2.dev/Tia%20Tandy%20Headshot.png"
-           alt="Tia Tandy in London Broncos kit"
-           onerror="this.style.display='none'">
+      <img src="/img/tia-hero-charge.jpg"
+           alt="Tia Tandy bursting through a tackle with the ball">
     </div>
   </div>
   <div class="pathway">
     <div class="wrap">
       <span>Dartford Valley</span><span class="sep">&#9656;</span>
+      <span>Medway</span><span class="sep">&#9656;</span>
       <span>Kent</span><span class="sep">&#9656;</span>
+      <span>Activate Oxford</span><span class="sep">&#9656;</span>
       <span>London Broncos</span><span class="sep">&#9656;</span>
       <span>Thurrock T-Birds</span>
     </div>
@@ -468,7 +479,7 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
     <div class="tape-item"><div class="k">Age</div><div class="v">18</div></div>
     <div class="tape-item"><div class="k">Position</div><div class="v">Hooker</div></div>
     <div class="tape-item"><div class="k">Codes</div><div class="v">2 <small>Union + League</small></div></div>
-    <div class="tape-item"><div class="k">County</div><div class="v">Kent <small>Captain</small></div></div>
+    <div class="tape-item"><div class="k">County</div><div class="v">Kent <small>U18s Captain</small></div></div>
     <div class="tape-item"><div class="k">Training</div><div class="v">5+ <small>Sessions / Wk</small></div></div>
   </div>
 </div>
@@ -484,32 +495,37 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
       <div class="story-copy">
         <p>
           Tia Tandy has been running at defenders since she was eight years old. She picked
-          the game up at Dartford Valley RFC — first on the grass at Central Park, later on
-          the 3G at Cotton Lane — and stayed for a decade, playing every age grade through
-          to Under-18s and collecting Kent League titles and cup wins along the way.
+          the game up at Dartford Valley RFC — starting in mixed rugby, lining up against
+          the boys in the U12s — and she has never really left: even now, weekends often end
+          back at the Valley playing Beccs mixed rugby. Along the way came two seasons at
+          Medway, a Kent Shield, a league title, and a twelve-try season playing mainly
+          at hooker.
         </p>
         <p>
-          County rugby followed. Tia has pulled on the Kent shirt at U14, U16 and U18 level
-          and now captains the side, while two years inside the Activate Oxford Rugby
-          Academy&rsquo;s elite programme sharpened her game for the senior stage.
+          County rugby followed — the Kent shirt at U14, U16 and U18, and now the U18s
+          captaincy. By twelve she was training five and six times a week, working with her
+          dad on sprints, swimming and ball skills; at sixteen she moved to train full-time
+          at the Activate Oxford Rugby Academy while finishing her studies.
         </p>
         <p>
           The step up came fast. A switch to rugby league with Sidcup Sharks and Brentwood
           Eels got her scouted by London Broncos, where she broke into a squad that finished
-          top of the Championship. In union — her main code — she has signed for Thurrock
-          T-Birds, going into the season as the youngest front-row forward in the Women&rsquo;s
-          Championship. The ambition from here is simple: keep climbing, all the way to an
-          England shirt.
+          top of the Championship. Now comes the big one: a 2026 senior debut for Thurrock
+          T-Birds in the Women&rsquo;s Championship, with the club chasing promotion to the
+          Premiership — and Tia&rsquo;s long-term sights set on an England shirt.
         </p>
       </div>
       <div class="story-cards">
+        <div class="pcard photo">
+          <img src="/img/tia-lineout-throw.jpg" alt="Tia Tandy lining up a lineout throw, ball raised overhead" loading="lazy">
+        </div>
         <div class="pcard">
-          <h3>One-Club Childhood</h3>
-          <p>Dartford Valley RFC, U8 to U18. Ten years, one badge, and a trophy cabinet&rsquo;s worth of Kent League titles and cups.</p>
+          <h3>Grassroots Forever</h3>
+          <p>Dartford Valley RFC since age eight — and still her club. Blue hair, one sock up, one sock down, and weekends that end where it all started.</p>
         </div>
         <div class="pcard red">
           <h3>The Grind</h3>
-          <p>Full-time education. Five-plus sessions a week across two clubs. Weekend fixtures. Every mile by public transport — unpaid.</p>
+          <p>Full-time education. Five to six sessions a week. Weekend fixtures. Every mile by public transport — unpaid.</p>
         </div>
       </div>
     </div>
@@ -530,18 +546,23 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
         <span class="badge">Debut</span>
       </div>
       <div class="fixture reveal">
-        <span class="yr">2016&ndash;24</span>
-        <span class="what">Every age grade to U18 at Dartford Valley. <b>Kent League titles and cup wins.</b></span>
+        <span class="yr">U12s</span>
+        <span class="what">Mixed rugby, week in week out <b>against the boys</b> — where the fearless streak comes from.</span>
+        <span class="badge">Fearless</span>
+      </div>
+      <div class="fixture reveal">
+        <span class="yr">U14&ndash;U15</span>
+        <span class="what">Two seasons at <b>Medway RFC</b> alongside the Valley — <b>Kent Shield winners</b>, 12 tries in her U15 year.</span>
         <span class="badge win">Silverware</span>
       </div>
       <div class="fixture reveal">
         <span class="yr">U14&ndash;U18</span>
-        <span class="what">County honours for <b>Kent</b> — now leading the side as captain.</span>
+        <span class="what">County honours for <b>Kent</b> — now leading the U18s as captain.</span>
         <span class="badge win">Captain</span>
       </div>
       <div class="fixture reveal">
         <span class="yr">2024</span>
-        <span class="what">Joined the <b>Activate Oxford Rugby Academy</b> elite performance programme.</span>
+        <span class="what">Moved at sixteen to train <b>full-time at the Activate Oxford Rugby Academy</b> — home at weekends for the Valley.</span>
         <span class="badge">Academy</span>
       </div>
       <div class="fixture reveal">
@@ -561,12 +582,12 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
       </div>
       <div class="fixture reveal">
         <span class="yr">2026</span>
-        <span class="what">Signed for <b>Thurrock T-Birds</b> — the youngest front-row in the Women&rsquo;s Championship.</span>
+        <span class="what">Signed for <b>Thurrock T-Birds</b> — a senior debut in her first adult season, with union the priority.</span>
         <span class="badge win">Signed</span>
       </div>
       <div class="fixture reveal">
         <span class="yr">Next</span>
-        <span class="what">Championship debut season. Long-term target: <b>an England shirt.</b></span>
+        <span class="what">Help Thurrock chase <b>Premiership promotion</b>. Long-term target: <b>an England shirt.</b></span>
         <span class="badge next">The Aim</span>
       </div>
     </div>
@@ -587,9 +608,9 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
         <h3>Thurrock T-Birds</h3>
         <p class="club">Women&rsquo;s Championship</p>
         <p>
-          Signed at 18 as the youngest front-row forward in the division. The club wanted
-          her a season earlier — age regulations said wait. The wait is over, and the
-          debut is coming.
+          Signed for the 2026 season — a senior debut in her first adult year, and a mark
+          of the club&rsquo;s faith in her. With Thurrock targeting promotion to the Premiership,
+          Tia is expected to play a real part in getting them there.
         </p>
       </div>
       <div class="code-panel league">
@@ -597,10 +618,33 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
         <h3>London Broncos</h3>
         <p class="club">RL Women&rsquo;s Championship</p>
         <p>
-          Scouted after breaking into the open-age game, Tia joined a Broncos squad that
-          topped the Championship table and went within one game of Super League promotion.
+          Scouted after breaking into the open-age game with Brentwood Eels, Tia joined a
+          Broncos squad that topped the Championship table and went within one game of Super
+          League promotion. For 2026, union comes first — the league chapter is waiting,
+          not closed.
         </p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WATCH ================= -->
+<section id="watch">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Watch</p>
+      <h2>My Rugby Life</h2>
+      <p class="lede">
+        Tia&rsquo;s own series and every upload from her channel — newest first, straight
+        from YouTube. The honest highs and lows of chasing the top of the game.
+      </p>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUcGmxwxj68cXWmPJuxV8nPQ"
+              title="Tia Tandy — My Rugby Life and channel uploads, newest first"
+              loading="lazy" allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 </section>
@@ -668,7 +712,7 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
         <p>Quick hits from the front row.</p>
         <div class="go">Follow &rarr;</div>
       </a>
-      <a class="social-card" href="https://www.youtube.com/channel/UCcGmxwxj68cXWmPJuxV8nPQ" target="_blank" rel="noopener">
+      <a class="social-card" href="https://www.youtube.com/@tiatandyrugby" target="_blank" rel="noopener">
         <span class="net">YouTube</span>
         <div class="handle">@tiatandyrugby</div>
         <p>Longer looks at the journey.</p>
@@ -691,6 +735,7 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
         <li><a href="#story">The Story</a></li>
         <li><a href="#journey">The Journey</a></li>
         <li><a href="#codes">Two Codes</a></li>
+        <li><a href="#watch">Watch</a></li>
         <li><a href="#sponsorship">Sponsorship</a></li>
         <li><a href="#follow">Follow</a></li>
       </ul>
