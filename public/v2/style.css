@@ -238,6 +238,14 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
 .ph-tag.red{background:var(--gold);color:#0B0B0C}
 .ph-label{font-family:var(--cond);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 18px}
 
+/* ---- video embeds ---- */
+.video-embed{
+  aspect-ratio:16/9;background:#000;
+  border:1px solid var(--line);border-bottom:6px solid var(--gold);
+}
+.video-embed iframe{width:100%;height:100%;border:0;display:block}
+.watch-link{margin-top:22px}
+
 /* ---- galleries & video grids ---- */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .gallery .tile{min-height:280px}
