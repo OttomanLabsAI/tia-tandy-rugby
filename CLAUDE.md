@@ -1,8 +1,15 @@
 # tia-tandy-rugby
 
-Single-page website for Tia Tandy, an 18-year-old dual-code rugby prop
-from Dartford. The whole site lives in `public/index.html` — no build
-step, no dependencies.
+Website for Tia Tandy, an 18-year-old dual-code rugby prop from
+Dartford. No build step, no dependencies. Two versions live side by
+side, linked by a tab strip at the top of every page:
+
+- **Version 1** — the original one-pager, `public/index.html`.
+- **Version 2** — a multi-page site with dropdown navigation under
+  `public/v2/` (front page, bio, one page per club, pictures,
+  sponsors, My Rugby Life, videos). Pages share `public/v2/style.css`;
+  photo/video/stat placeholders are filled in as the client supplies
+  material.
 
 ## Deployment
 

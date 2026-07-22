@@ -88,6 +88,17 @@ a{color:inherit}
 .btn-chalk{background:var(--chalk);border-color:var(--chalk);color:var(--ink)}
 .btn-chalk:hover{background:var(--white)}
 
+/* ---- version tabs ---- */
+.vtabs{background:var(--ink)}
+.vtabs .wrap{display:flex;gap:6px;padding-top:8px}
+.vtab{
+  font-family:var(--cond);font-weight:700;font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  color:#8B95AD;padding:9px 16px 7px;
+}
+.vtab.active{background:var(--red);color:var(--white)}
+.vtab:hover{color:var(--white)}
+
 /* ---- top trim + nav ---- */
 .trim{height:6px;background:var(--red)}
 .nav{
@@ -391,6 +402,12 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
 </head>
 <body>
 
+<div class="vtabs" aria-label="Site versions">
+  <div class="wrap">
+    <a class="vtab active" href="/" aria-current="true">Version 1 &middot; One-Pager</a>
+    <a class="vtab" href="/v2/">Version 2 &middot; Full Programme</a>
+  </div>
+</div>
 <div class="trim" aria-hidden="true"></div>
 
 <nav class="nav" aria-label="Main">
