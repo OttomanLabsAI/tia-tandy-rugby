@@ -1,8 +1,15 @@
 # tia-tandy-rugby
 
 Single-page website for Tia Tandy, an 18-year-old dual-code rugby prop
-from Dartford. The whole site lives in `index.html` — no build step, no
-dependencies.
+from Dartford. The whole site lives in `public/index.html` — no build
+step, no dependencies.
+
+## Deployment
+
+Cloudflare Workers static assets: every push deploys via
+`npx wrangler deploy`, which serves the `public/` directory as
+configured in `wrangler.jsonc`. Anything that should ship must live
+under `public/`.
 
 ## Release workflow
 

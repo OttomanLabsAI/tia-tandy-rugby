@@ -4,8 +4,10 @@ The website of Tia Tandy — an 18-year-old front-row forward from
 Dartford, Kent, playing senior rugby in both codes: union with Thurrock
 T-Birds and league with London Broncos.
 
-The site is a single self-contained page: open `index.html` in a
-browser, or serve the repo root with any static host.
+The site is a single self-contained page: open `public/index.html` in a
+browser. Deployment is Cloudflare Workers static assets — every push
+runs `npx wrangler deploy`, which serves the `public/` directory as
+configured in `wrangler.jsonc`.
 
 ## Releases
 

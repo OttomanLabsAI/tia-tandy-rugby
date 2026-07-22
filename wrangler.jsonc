@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers static-assets deployment: `npx wrangler deploy`
+  // serves everything in ./public as a static site.
+  "name": "tia-tandy-rugby",
+  "compatibility_date": "2026-07-22",
+  "assets": {
+    "directory": "./public"
+  }
+}
