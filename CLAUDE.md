@@ -1,6 +1,6 @@
 # tia-tandy-rugby
 
-Website for Tia Tandy, an 18-year-old dual-code rugby prop from
+Website for Tia Tandy, an 18-year-old dual-code rugby hooker from
 Dartford. No build step, no dependencies. Two versions live side by
 side, linked by a tab strip at the top of every page:
 
