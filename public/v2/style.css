@@ -231,6 +231,14 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
   margin-top:26px;padding:14px 18px;border-left:4px solid var(--gold);
   background:var(--panel);font-size:15px;color:var(--muted);border-radius:0 6px 6px 0;
 }
+.seasons{margin-top:6px}
+.season{border-top:1px solid var(--line);padding:24px 0 8px}
+.season header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:10px}
+.s-yr{font-family:var(--display);font-weight:400;font-size:22px;letter-spacing:.02em;color:var(--gold)}
+.s-team{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper)}
+.s-chips{margin-left:auto;font-family:var(--cond);font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.season p{max-width:780px;margin-bottom:16px;font-size:17px}
+@media (max-width:720px){.s-chips{margin-left:0;flex-basis:100%}}
 .prose{max-width:780px}
 .prose p{margin-bottom:20px;font-size:17.5px}
 .prose p:last-child{margin-bottom:0}
