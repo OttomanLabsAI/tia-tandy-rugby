@@ -201,6 +201,15 @@ h1,.section-head h2{font-family:var(--display);font-weight:400;text-transform:up
 }
 .logo-row.big .logo-slot{min-height:150px}
 a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gold)}
+.logo-slot.filled{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  border-style:solid;border-color:var(--gold-line);text-decoration:none;
+}
+.sp-name{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);text-indent:.3em}
+.sp-sub{font-family:var(--cond);font-weight:500;font-size:11px;letter-spacing:.44em;text-transform:uppercase;color:var(--muted);text-indent:.44em}
+.sp-handle{font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.06em;color:var(--gold)}
+.logo-slot.filled:hover{border-color:var(--gold);box-shadow:0 10px 26px rgba(0,0,0,.45)}
+.logo-slot.filled:hover .sp-name{color:var(--gold-2)}
 
 /* ---- cards ---- */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
