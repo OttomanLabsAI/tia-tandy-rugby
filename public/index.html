@@ -288,6 +288,22 @@ section{padding:96px 0}
 .code-panel.league .club{color:var(--muted)}
 .code-panel p{font-size:16.5px;line-height:1.6}
 
+/* ---- honours board ---- */
+#honours{background:var(--ink);color:var(--chalk)}
+#honours .section-head h2{color:var(--chalk)}
+.honours-list{border-top:6px solid var(--red)}
+.hrow{
+  display:grid;grid-template-columns:140px 1fr;gap:26px;align-items:baseline;
+  padding:20px 6px;border-bottom:1px solid var(--ink-soft);
+}
+.hrow .hyr{font-family:var(--varsity);font-size:22px;color:var(--red);letter-spacing:.06em}
+.hlist{list-style:none;display:flex;flex-wrap:wrap;gap:8px 28px}
+.hlist li{position:relative;padding-left:22px;font-size:16.5px;font-weight:600}
+.hlist li::before{content:"";position:absolute;left:0;top:11px;width:12px;height:4px;background:var(--red)}
+.hlist li.none{color:#8B95AD;font-weight:400;font-style:italic}
+.hlist li.none::before{background:var(--ink-soft)}
+@media (max-width:720px){.hrow{grid-template-columns:1fr;gap:8px}}
+
 /* ---- watch ---- */
 #watch{background:var(--chalk)}
 .video-frame{
@@ -426,6 +442,7 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
     <ul class="nav-links">
       <li><a href="#story">The Story</a></li>
       <li><a href="#journey">The Journey</a></li>
+      <li><a href="#honours">Honours</a></li>
       <li><a href="#codes">Two Codes</a></li>
       <li><a href="#watch">Watch</a></li>
       <li><a href="#follow">Follow</a></li>
@@ -601,6 +618,62 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
   </div>
 </section>
 
+<!-- ================= HONOURS ================= -->
+<section id="honours">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Honours</p>
+      <h2>The Trophy Shelf</h2>
+      <p class="lede" style="color:#A9B2C7">Awards, titles and captaincies, year by year — including the one quiet season.</p>
+    </div>
+    <div class="honours-list">
+      <div class="hrow">
+        <span class="hyr">2020</span>
+        <ul class="hlist"><li>Medway Festival — Runner-Up</li></ul>
+      </div>
+      <div class="hrow">
+        <span class="hyr">2021</span>
+        <ul class="hlist"><li class="none">No major awards</li></ul>
+      </div>
+      <div class="hrow">
+        <span class="hyr">2022</span>
+        <ul class="hlist"><li>Heart of the Team Award</li></ul>
+      </div>
+      <div class="hrow">
+        <span class="hyr">2023</span>
+        <ul class="hlist"><li>Coaches&rsquo; Player of the Year</li></ul>
+      </div>
+      <div class="hrow">
+        <span class="hyr">2024</span>
+        <ul class="hlist">
+          <li>Coaches&rsquo; Player of the Year</li>
+          <li>7s Champions</li>
+          <li>Kent Cup Champions</li>
+          <li>Kent Captain</li>
+        </ul>
+      </div>
+      <div class="hrow">
+        <span class="hyr">2025</span>
+        <ul class="hlist">
+          <li>Jack Petchey Outstanding Achievement Award</li>
+          <li>Rookie of the Year</li>
+          <li>Coaches&rsquo; Player of the Year</li>
+          <li>Kent League Champions</li>
+          <li>Kent Cup Champions</li>
+          <li>Kent Captain</li>
+        </ul>
+      </div>
+      <div class="hrow">
+        <span class="hyr">2026</span>
+        <ul class="hlist">
+          <li>Champions Rugby League Winner</li>
+          <li>Kent Captain</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= TWO CODES ================= -->
 <section id="codes">
   <div class="wrap">
@@ -741,6 +814,7 @@ footer{background:var(--ink);color:var(--chalk);padding:52px 0 40px}
       <ul class="foot-links">
         <li><a href="#story">The Story</a></li>
         <li><a href="#journey">The Journey</a></li>
+        <li><a href="#honours">Honours</a></li>
         <li><a href="#codes">Two Codes</a></li>
         <li><a href="#watch">Watch</a></li>
         <li><a href="#sponsorship">Sponsorship</a></li>
