@@ -231,6 +231,15 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
   margin-top:26px;padding:14px 18px;border-left:4px solid var(--gold);
   background:var(--panel);font-size:15px;color:var(--muted);border-radius:0 6px 6px 0;
 }
+.honours{margin-top:8px}
+.honour-year{display:grid;grid-template-columns:130px 1fr;gap:18px;border-top:1px solid var(--line);padding:26px 0 20px}
+.hy{font-family:var(--display);font-weight:400;font-size:30px;letter-spacing:.02em;color:var(--gold)}
+.award-list{list-style:none}
+.award-list li{position:relative;padding:7px 0 7px 28px;font-size:17px;font-weight:600;color:var(--paper)}
+.award-list li::before{content:"";position:absolute;left:0;top:17px;width:14px;height:3px;background:var(--gold)}
+.award-list li.none{color:var(--muted);font-weight:400;font-style:italic}
+.award-list li.none::before{background:var(--line)}
+@media (max-width:720px){.honour-year{grid-template-columns:1fr;gap:4px}}
 .seasons{margin-top:6px}
 .season{border-top:1px solid var(--line);padding:24px 0 8px}
 .season header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:10px}
@@ -336,7 +345,7 @@ footer{background:#000;color:var(--paper);padding:48px 0 36px;border-top:1px sol
   .cards,.gallery,.logo-row,.logo-row.small{grid-template-columns:1fr 1fr}
   .video-grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:1240px){
+@media (max-width:1420px){
   .nav-ig{display:none}
 }
 @media (max-width:720px){
