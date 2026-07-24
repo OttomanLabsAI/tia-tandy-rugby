@@ -51,6 +51,8 @@ a{color:inherit}
   font-family:var(--marker);font-size:27px;line-height:1;color:var(--gold);
   transform:rotate(-4deg);flex:none;
 }
+.brand-logo{height:46px;width:46px;object-fit:contain;flex:none}
+.foot-logo{height:120px;object-fit:contain}
 .brand-text{
   font-family:var(--cond);font-weight:700;font-size:19px;line-height:1;
   letter-spacing:.06em;text-transform:uppercase;color:var(--paper);
