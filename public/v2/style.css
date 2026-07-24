@@ -205,6 +205,8 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
   border-style:solid;border-color:var(--gold-line);text-decoration:none;
 }
+.sp-logo{max-height:74px;max-width:82%;object-fit:contain}
+.logo-row.big .sp-logo{max-height:92px}
 .sp-name{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);text-indent:.3em}
 .sp-sub{font-family:var(--cond);font-weight:500;font-size:11px;letter-spacing:.44em;text-transform:uppercase;color:var(--muted);text-indent:.44em}
 .sp-handle{font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.06em;color:var(--gold)}
