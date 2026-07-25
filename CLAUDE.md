@@ -1,23 +1,24 @@
 # tia-tandy-rugby
 
 Website for Tia Tandy, an 18-year-old dual-code rugby hooker from
-Dartford. No build step, no dependencies. Two versions are maintained,
-but only Version 2 is public — there are no links between them, and
-the site root (`public/index.html`) is a tiny instant redirect to
-`/v2/`.
+Dartford (tiatandyrugby.com). No build step, no dependencies. Two
+versions are maintained, with no links between them:
 
-- **Version 1** — the original one-pager, `public/v1/index.html`, in
-  the navy/chalk/red match-programme style. The owner's preferred
-  version, kept building but unlisted: keep its facts in step with
-  Version 2, condensed to suit the single-page format — never paste
-  long-form copy into it, and never change its design language.
-- **Version 2** — the public site: multi-page with dropdown navigation
-  under `public/v2/` (front page, bio, one page per club,
-  achievements, pictures, sponsors, My Rugby Life, videos), styled
-  black-and-gold to the client's mock. Pages are generated from a
-  shared template script; `public/v2/style.css` holds the look.
+- **The public site** — multi-page, black-and-gold, served at the
+  domain root: `public/index.html`, `bio.html`, `union/`, `league/`,
+  `achievements`, `pictures`, `sponsors`, `my-rugby-life`, `videos`,
+  plus the hosted partnership pack (`partnership-pack.html` and
+  `files/Tia_Tandy_Partnership_Pack.pdf`). Pages are generated from a
+  shared template script; `public/style.css` holds the look. The
+  homepage carries a Next Match band (TBA until the owner supplies
+  fixture details — set NEXT_MATCH in the generator).
+- **The one-pager** — the original navy/chalk/red match-programme
+  page, unlisted at `/v2/` (`public/v2/index.html`) by owner
+  instruction. Keep its facts in step, condensed to suit the
+  single-page format — never paste long-form copy into it, and never
+  change its design language.
 
-Shared photos live in `public/img/` and are used by both versions.
+Shared photos and sponsor logos live in `public/img/`.
 
 ## Deployment
 

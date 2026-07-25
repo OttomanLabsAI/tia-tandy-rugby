@@ -183,7 +183,7 @@ h1,.section-head h2{font-family:var(--display);font-weight:400;text-transform:up
 /* ---- partners band ---- */
 .partners-band{background:#0E0E12;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0 44px}
 .band-label{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.logo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.logo-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:20px}
 .logo-row.small{grid-template-columns:repeat(3,1fr)}
 .logo-slot{
   border:1px solid var(--line);color:var(--muted);background:var(--panel);border-radius:6px;
@@ -201,6 +201,9 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
 .sp-name{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);text-indent:.3em}
 .sp-sub{font-family:var(--cond);font-weight:500;font-size:11px;letter-spacing:.44em;text-transform:uppercase;color:var(--muted);text-indent:.44em}
 .sp-handle{font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.06em;color:var(--gold)}
+.main-chip{font-family:var(--cond);font-weight:700;font-size:10px;letter-spacing:.3em;text-transform:uppercase;background:var(--gold);color:#0B0B0C;padding:4px 10px 3px;text-indent:.3em}
+.sp-role{font-family:var(--body);font-size:13px;line-height:1.45;color:var(--muted);text-align:center;max-width:240px}
+.logo-slot.filled{padding:18px 14px}
 .logo-slot.filled:hover{border-color:var(--gold);box-shadow:0 10px 26px rgba(0,0,0,.45)}
 .logo-slot.filled:hover .sp-name{color:var(--gold-2)}
 
@@ -276,6 +279,13 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
 }
 .ph-tag.red{background:var(--gold);color:#0B0B0C}
 .ph-label{font-family:var(--cond);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 18px}
+
+/* ---- next match band ---- */
+.match-band{background:#0E0E12;border-bottom:1px solid var(--gold-line)}
+.match-inner{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:11px 28px}
+.match-label{font-family:var(--cond);font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;background:var(--gold);color:#0B0B0C;padding:5px 11px 4px;text-indent:.26em}
+.match-info{font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--paper)}
+.match-info .tba{color:var(--muted)}
 
 /* ---- video embeds ---- */
 .video-embed{
