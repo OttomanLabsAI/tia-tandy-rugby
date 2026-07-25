@@ -315,6 +315,41 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
 }
 .video-ph::before{content:"\25B6";color:var(--gold);font-size:34px;line-height:1}
 
+/* ---- partnership programme ---- */
+.num-label{font-family:var(--cond);font-weight:600;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:26px 0 12px}
+.num-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.num{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:16px 18px}
+.num b{display:block;font-family:var(--display);font-weight:400;font-size:27px;letter-spacing:.01em;color:var(--gold)}
+.num span{font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:var(--cond);font-weight:600;font-size:12.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--paper);
+  border:1px solid var(--gold-line);border-radius:999px;padding:7px 14px;
+}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.why{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:22px 24px}
+.why h3{font-family:var(--cond);font-weight:700;font-size:14.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.why p{font-size:15px;color:var(--muted);line-height:1.55}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;align-items:stretch}
+.tier{
+  position:relative;border:1px solid var(--line);background:var(--panel);
+  border-radius:6px;padding:28px 26px 22px;display:flex;flex-direction:column;
+}
+.tier.popular{border-color:var(--gold)}
+.t-badge{
+  position:absolute;top:-12px;left:24px;background:var(--gold);color:#0B0B0C;
+  font-family:var(--cond);font-weight:700;font-size:10.5px;letter-spacing:.26em;
+  text-transform:uppercase;padding:5px 11px 4px;text-indent:.26em;
+}
+.t-name{font-family:var(--cond);font-weight:700;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);text-indent:.3em;text-align:center}
+.t-price{font-family:var(--display);font-weight:400;font-size:36px;color:var(--gold);text-align:center;margin:8px 0 4px}
+.t-per{display:block;font-family:var(--cond);font-weight:500;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.tier ul{list-style:none;margin-top:14px}
+.tier li{position:relative;padding:9px 0 9px 24px;border-bottom:1px solid var(--line);font-size:15px}
+.tier li:last-child{border-bottom:none}
+.tier li::before{content:"";position:absolute;left:0;top:18px;width:12px;height:3px;background:var(--gold)}
+
 /* ---- sponsors page ---- */
 .rule-head{
   font-family:var(--display);font-weight:400;font-size:clamp(24px,3.2vw,34px);
