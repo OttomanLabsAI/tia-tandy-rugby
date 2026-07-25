@@ -1,19 +1,21 @@
 # tia-tandy-rugby
 
 Website for Tia Tandy, an 18-year-old dual-code rugby hooker from
-Dartford. No build step, no dependencies. Two versions live side by
-side, linked by a tab strip at the top of every page:
+Dartford. No build step, no dependencies. Two versions are maintained,
+but only Version 2 is public — there are no links between them, and
+the site root (`public/index.html`) is a tiny instant redirect to
+`/v2/`.
 
-- **Version 1** — the original one-pager, `public/index.html`, in the
-  navy/chalk/red match-programme style. The owner's preferred version:
-  keep its facts in step with Version 2, but condensed to suit the
-  single-page format — never paste long-form copy into it, and never
-  change its design language.
-- **Version 2** — a multi-page site with dropdown navigation under
-  `public/v2/` (front page, bio, one page per club, pictures,
-  sponsors, My Rugby Life, videos), styled black-and-gold to the
-  client's mock. The client's preferred version. Pages are generated
-  from a shared template script; `public/v2/style.css` holds the look.
+- **Version 1** — the original one-pager, `public/v1/index.html`, in
+  the navy/chalk/red match-programme style. The owner's preferred
+  version, kept building but unlisted: keep its facts in step with
+  Version 2, condensed to suit the single-page format — never paste
+  long-form copy into it, and never change its design language.
+- **Version 2** — the public site: multi-page with dropdown navigation
+  under `public/v2/` (front page, bio, one page per club,
+  achievements, pictures, sponsors, My Rugby Life, videos), styled
+  black-and-gold to the client's mock. Pages are generated from a
+  shared template script; `public/v2/style.css` holds the look.
 
 Shared photos live in `public/img/` and are used by both versions.
 

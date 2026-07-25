@@ -31,17 +31,6 @@ a{color:inherit}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
 .section{padding:64px 28px 96px}
 
-/* ---- version tabs ---- */
-.vtabs{background:#000}
-.vtabs .wrap{display:flex;gap:6px;padding-top:8px}
-.vtab{
-  font-family:var(--cond);font-weight:600;font-size:13px;
-  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
-  color:#7C766B;padding:9px 16px 7px;
-}
-.vtab.active{background:var(--gold);color:#0B0B0C}
-.vtab:hover{color:var(--gold-2)}
-
 /* ---- trim + nav ---- */
 .trim{height:5px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-2),var(--gold-deep))}
 .nav{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
