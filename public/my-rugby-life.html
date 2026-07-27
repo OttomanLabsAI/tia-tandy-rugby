@@ -70,19 +70,96 @@
 </header>
 
 <main class="wrap section">
-  <h2 class="rule-head">The Full Series</h2>
-  <p class="lede">Every episode of My Rugby Life, playing straight from Tia&rsquo;s own playlist &mdash;
-  use the playlist button in the player to jump between episodes.</p>
-  <div class="video-embed">
-    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLDw4jTGijMao"
-            title="My Rugby Life &mdash; the full series"
-            loading="lazy" allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <h2 class="rule-head">Every Episode</h2>
+  <p class="lede">Newest first, straight from the playlist &mdash; tap any episode to play it right here.</p>
+  <div class="video-grid" id="mrl-grid" data-list="PLDw4jTGijMao" data-reverse="1">
+    <p class="fill-note" style="grid-column:1/-1">Loading episodes&hellip;</p>
   </div>
-  <p class="fill-note">Everything else from the channel &mdash; highlights and the rest &mdash; plays on
-  the <a href="/videos.html">Videos page</a>.</p>
+  <p class="fill-note">Everything else from the channel &mdash; highlights and the rest &mdash; plays on the
+  <a href="/videos.html">Videos page</a>.</p>
 </main>
+<div style="position:fixed;left:-9999px;top:0;width:2px;height:2px;overflow:hidden" aria-hidden="true"><div id="mrl-probe-player"></div></div>
+<script>
+(function(){
+  var grid = document.getElementById('mrl-grid');
+  if (!grid) return;
+  var list = grid.getAttribute('data-list');
+  var reverse = grid.getAttribute('data-reverse') === '1';
+  var done = false;
+
+  function fallback(){
+    if (done) return; done = true;
+    grid.innerHTML = '<div class="video-embed" style="grid-column:1/-1"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=' + list + '" title="My Rugby Life playlist" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>';
+  }
+
+  function makeEmbed(id){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
+    f.title = 'My Rugby Life episode';
+    f.setAttribute('allowfullscreen','');
+    f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    return f;
+  }
+
+  function render(ids){
+    if (done) return; done = true;
+    if (reverse) ids = ids.slice().reverse();
+    grid.innerHTML = '';
+    ids.forEach(function(id, i){
+      var wrap = document.createElement('div');
+      var box = document.createElement('div');
+      box.className = 'video-embed';
+      var b = document.createElement('button');
+      b.className = 'lite';
+      b.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+      b.setAttribute('aria-label','Play this episode');
+      b.innerHTML = '<span class="lite-play">&#9654;</span>';
+      b.addEventListener('click', function(){ box.innerHTML = ''; box.appendChild(makeEmbed(id)); });
+      box.appendChild(b);
+      var cap = document.createElement('p');
+      cap.className = 'vid-cap';
+      cap.textContent = 'Episode ' + (reverse ? ids.length - i : i + 1);
+      fetch('https://noembed.com/embed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D' + id)
+        .then(function(r){ return r.json(); })
+        .then(function(j){ if (j && j.title) cap.textContent = j.title; })
+        .catch(function(){});
+      wrap.appendChild(box); wrap.appendChild(cap);
+      grid.appendChild(wrap);
+    });
+  }
+
+  var timeout = setTimeout(fallback, 12000);
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  tag.onerror = function(){ clearTimeout(timeout); fallback(); };
+  document.head.appendChild(tag);
+
+  window.onYouTubeIframeAPIReady = function(){
+    try {
+      var p = new YT.Player('mrl-probe-player', {
+        width: 2, height: 2,
+        playerVars: { listType: 'playlist', list: list, mute: 1 },
+        events: {
+          onReady: function(){
+            var tries = 0;
+            var t = setInterval(function(){
+              tries++;
+              var ids = [];
+              try { ids = p.getPlaylist() || []; } catch(e){}
+              if (ids.length) {
+                clearInterval(t); clearTimeout(timeout);
+                render(ids);
+                try { p.destroy(); } catch(e){}
+              } else if (tries > 30) { clearInterval(t); fallback(); }
+            }, 350);
+          },
+          onError: function(){ clearTimeout(timeout); fallback(); }
+        }
+      });
+    } catch(e){ fallback(); }
+  };
+})();
+</script>
 
 
 <div class="gold-band">
