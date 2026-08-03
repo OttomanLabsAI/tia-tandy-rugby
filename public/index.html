@@ -63,14 +63,14 @@
 <a class="match-band" href="/fixtures.html"><div class="wrap match-inner"><span class="match-label">Next Match</span><span class="match-info" id="match-info"><span class="tba">Fixture details coming soon</span></span></div></a><script>
 (function(){
   var el = document.getElementById('match-info'); if (!el) return;
-  var fx = [{"d": "2026-09-20", "o": "Ivy Bridge", "ha": "A"}, {"d": "2026-09-27", "o": "Bath", "ha": "A"}, {"d": "2026-10-11", "o": "Richmond", "ha": "H"}, {"d": "2026-10-18", "o": "Old Albanian Saints", "ha": "A"}, {"d": "2026-11-01", "o": "Exeter University", "ha": "H"}, {"d": "2026-11-08", "o": "North Bristol", "ha": "A"}, {"d": "2026-11-22", "o": "Trojans", "ha": "H"}, {"d": "2026-11-29", "o": "London Irish", "ha": "A"}, {"d": "2026-12-13", "o": "Beckenham", "ha": "H"}, {"d": "2026-12-20", "o": "Bath", "ha": "H"}, {"d": "2027-01-10", "o": "Richmond", "ha": "A"}, {"d": "2027-01-17", "o": "Old Albanian Saints", "ha": "H"}, {"d": "2027-01-31", "o": "Exeter University", "ha": "A"}, {"d": "2027-02-07", "o": "North Bristol", "ha": "H"}, {"d": "2027-02-21", "o": "Trojans", "ha": "A"}, {"d": "2027-02-28", "o": "London Irish", "ha": "H"}, {"d": "2027-03-14", "o": "Beckenham", "ha": "A"}, {"d": "2027-03-21", "o": "Ivy Bridge", "ha": "H"}];
+  var fx = [{"d": "2026-09-20", "o": "Ivy Bridge", "ha": "A", "pc": "PL21 0LR"}, {"d": "2026-09-27", "o": "Bath", "ha": "A", "pc": "BA1 6BD"}, {"d": "2026-10-11", "o": "Richmond", "ha": "H", "pc": "RM16 2QH"}, {"d": "2026-10-18", "o": "Old Albanian Saints", "ha": "A", "pc": "AL3 6BB"}, {"d": "2026-11-01", "o": "Exeter University", "ha": "H", "pc": "RM16 2QH"}, {"d": "2026-11-08", "o": "North Bristol", "ha": "A", "pc": "BS32 4AA"}, {"d": "2026-11-22", "o": "Trojans", "ha": "H", "pc": "RM16 2QH"}, {"d": "2026-11-29", "o": "London Irish", "ha": "A", "pc": "TW16 6QU"}, {"d": "2026-12-13", "o": "Beckenham", "ha": "H", "pc": "RM16 2QH"}, {"d": "2026-12-20", "o": "Bath", "ha": "H", "pc": "RM16 2QH"}, {"d": "2027-01-10", "o": "Richmond", "ha": "A", "pc": "TW9 2SF"}, {"d": "2027-01-17", "o": "Old Albanian Saints", "ha": "H", "pc": "RM16 2QH"}, {"d": "2027-01-31", "o": "Exeter University", "ha": "A", "pc": "EX3 0LY"}, {"d": "2027-02-07", "o": "North Bristol", "ha": "H", "pc": "RM16 2QH"}, {"d": "2027-02-21", "o": "Trojans", "ha": "A", "pc": "SO50 9HT"}, {"d": "2027-02-28", "o": "London Irish", "ha": "H", "pc": "RM16 2QH"}, {"d": "2027-03-14", "o": "Beckenham", "ha": "A", "pc": "BR3 3RD"}, {"d": "2027-03-21", "o": "Ivy Bridge", "ha": "H", "pc": "RM16 2QH"}];
   var today = new Date(); today.setHours(0,0,0,0);
   var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var mons = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   for (var i = 0; i < fx.length; i++) {
     var d = new Date(fx[i].d + 'T12:00:00');
     if (d >= today) {
-      el.textContent = 'Thurrock T-Birds v ' + fx[i].o + ' · ' + days[d.getDay()] + ' ' + d.getDate() + ' ' + mons[d.getMonth()] + ' · ' + (fx[i].ha === 'H' ? 'Home' : 'Away') + ' · KO TBC';
+      el.textContent = 'Thurrock T-Birds v ' + fx[i].o + ' · ' + days[d.getDay()] + ' ' + d.getDate() + ' ' + mons[d.getMonth()] + ' · ' + (fx[i].ha === 'H' ? 'Home' : 'Away') + ' · ' + fx[i].pc + ' · KO TBC';
       return;
     }
   }
