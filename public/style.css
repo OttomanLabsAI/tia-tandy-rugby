@@ -183,9 +183,15 @@ h1,.section-head h2{font-family:var(--display);font-weight:400;text-transform:up
 /* ---- partners band ---- */
 .partners-band{background:#0E0E12;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0 44px}
 .band-label{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-/* Six main partners sit as two even rows of three rather than five and a stray. */
-.logo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* Seven main partners set as a balanced 4 + 3 (12-col grid: four span-3s, then three span-4s).
+   Desktop-only — the phone/tablet grids below use plain 1- and 2-column tracks. */
+.logo-row{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+@media (min-width:981px){
+  .logo-row>.logo-slot{grid-column:span 4}
+  .logo-row>.logo-slot:nth-child(-n+4){grid-column:span 3}
+}
 .logo-row.small{grid-template-columns:repeat(3,1fr)}
+.logo-row.small>.logo-slot{grid-column:auto}
 .logo-slot{
   border:1px solid var(--line);color:var(--muted);background:var(--panel);border-radius:6px;
   min-height:110px;display:grid;place-items:center;text-decoration:none;
@@ -434,6 +440,7 @@ footer{background:#000;color:var(--paper);padding:48px 0 36px;border-top:1px sol
 @media (max-width:980px){
   .home-grid,.club-grid{grid-template-columns:1fr;gap:36px}
   .cards,.gallery,.logo-row,.logo-row.small{grid-template-columns:1fr 1fr}
+  .logo-row>.logo-slot{grid-column:auto}
   .video-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:720px){
