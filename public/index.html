@@ -70,7 +70,7 @@
   for (var i = 0; i < fx.length; i++) {
     var d = new Date(fx[i].d + 'T12:00:00');
     if (d >= today) {
-      el.textContent = 'Thurrock T-Birds v ' + fx[i].o + ' · ' + days[d.getDay()] + ' ' + d.getDate() + ' ' + mons[d.getMonth()] + ' · ' + (fx[i].ha === 'H' ? 'Home' : 'Away') + ' · ' + fx[i].pc + ' · KO TBC';
+      el.textContent = 'Thurrock T-Birds v ' + fx[i].o + ' · ' + days[d.getDay()] + ' ' + d.getDate() + ' ' + mons[d.getMonth()] + ' · ' + (fx[i].ha === 'H' ? 'Home' : 'Away') + ' · ' + fx[i].pc + ' · Kick-off TBC';
       return;
     }
   }
