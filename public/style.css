@@ -183,9 +183,9 @@ h1,.section-head h2{font-family:var(--display);font-weight:400;text-transform:up
 /* ---- partners band ---- */
 .partners-band{background:#0E0E12;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0 44px}
 .band-label{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-/* Eight main partners set as two even rows of four; the phone/tablet grids below
+/* Nine main partners set as three even rows of three; the phone/tablet grids below
    drop to two columns and then one. */
-.logo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.logo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .logo-row.small{grid-template-columns:repeat(3,1fr)}
 .logo-slot{
   border:1px solid var(--line);color:var(--muted);background:var(--panel);border-radius:6px;

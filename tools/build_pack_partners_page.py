@@ -25,6 +25,7 @@ PARTNERS = [
     ("logo-gelforce.jpg", "@gelforceofficial_", "Protective sports bras"),
     ("logo-apex-mouthguards.jpg", "@apex_mouthguards", "Laser-scanned gum shields"),
     ("logo-aurion.png", "@aurion.london", "Mayfair &middot; London"),
+    ("logo-primova.png", "@primovaplus", ""),  # strapline lives in the logo itself
     ("logo-bodymasters.png", "@the_body_masters", "Sports injury &amp; physio"),
 ]
 SUPPORTERS = [
@@ -81,7 +82,7 @@ body{background:#333;font-family:'Barlow';color:var(--paper)}
 .card p{font-size:9.5pt;color:var(--muted);line-height:1.5}
 .moment{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .prow{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}
-.prow.main{grid-template-columns:repeat(4,1fr);gap:3.5mm}
+.prow.main{grid-template-columns:repeat(5,1fr);gap:3mm}
 .pcardx{border:1px solid var(--line);background:var(--panel);border-radius:2mm;padding:4mm 3mm;
   display:flex;flex-direction:column;align-items:center;gap:2mm;justify-content:center}
 .pcardx img{max-height:12mm;max-width:85%;object-fit:contain}
@@ -94,7 +95,7 @@ body{background:#333;font-family:'Barlow';color:var(--paper)}
 """
 
     main_cards = "".join(
-        f'<div class="pcardx"><img src="{IMG}/{f}"><span>{h}</span><i>{r}</i></div>'
+        f'<div class="pcardx"><img src="{IMG}/{f}"><span>{h}</span>' + (f'<i>{r}</i>' if r else '') + '</div>'
         for f, h, r in PARTNERS)
     supp_cards = "".join(
         f'<div class="pcardx"><img src="{IMG}/{f}"><span>{h}</span></div>'
