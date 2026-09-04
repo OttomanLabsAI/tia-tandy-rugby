@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-"""Rebuild page 6 (Current partners / The Bigger Picture) of the partnership
-pack and splice it into public/files/Tia_Tandy_Partnership_Pack.pdf.
+"""Rebuild the partnership-pack pages that change over time — the Numbers page
+(page 3) and the Current Partners page (page 6) — and splice them into
+public/files/Tia_Tandy_Partnership_Pack.pdf, leaving every other page untouched.
 
-The original whole-pack builder was lost with a sandbox reset; this rebuilds
-the one page that changes when the sponsor roster does, leaving every other
-page of the shipped PDF untouched. Fonts are fetched from Google Fonts into
-FONT_DIR as Anton-400 / Oswald-500,600,700 / Barlow-400 TTFs before running.
+The original whole-pack builder was lost with a sandbox reset; these rebuild the
+pages that change when the sponsor roster or audience stats do. Fonts are fetched
+from Google Fonts into FONT_DIR as Anton-400 / Oswald-500,600,700 / Barlow-400
+TTFs before running.
 
-Usage: python3 tools/build_pack_partners_page.py <font_dir> <work_dir>
-Then print <work_dir>/p6.html to PDF with headless Chromium
-(--no-pdf-header-footer) and run this script again with --splice <page.pdf>.
+Usage:
+  python3 tools/build_pack_partners_page.py <font_dir> <work_dir> [partners|numbers]
+  # print <work_dir>/page.html to PDF with headless Chromium (--no-pdf-header-footer)
+  python3 tools/build_pack_partners_page.py --splice <page.pdf> [3|6]
 """
 import base64, pathlib, sys
 
@@ -37,8 +39,23 @@ SUPPORTERS = [
     ("logo-funkoff.jpg", "@funkoffpro"),
 ]
 
+IG_STATS = [
+    ("8K+", "Followers"),
+    ("250&ndash;280K", "Monthly reach"),
+    ("4&ndash;5K", "Monthly interactions"),
+    ("5K", "Avg. views per reel"),
+    ("100K+", "Best-performing reel"),
+]
+TIKTOK_STATS = [
+    ("3.2K+", "Followers"),
+    ("175K+", "Total likes"),
+    ("2.3M", "Views &mdash; top video"),
+]
+AUDIENCE_CHIPS = ["Rugby Players", "Grassroots Athletes", "Women&rsquo;s Rugby Fans",
+                  "Sports Enthusiasts", "UK-Based"]
 
-def build_html(font_dir: pathlib.Path) -> str:
+
+def base_css(font_dir: pathlib.Path) -> str:
     def face(fam, weight, fname):
         b64 = base64.b64encode((font_dir / fname).read_bytes()).decode()
         return ("@font-face{font-family:'%s';font-style:normal;font-weight:%s;"
@@ -51,8 +68,7 @@ def build_html(font_dir: pathlib.Path) -> str:
         face("Oswald", 700, "Oswald-700.ttf"),
         face("Barlow", 400, "Barlow-400.ttf"),
     ])
-
-    css = fonts + """
+    return fonts + """
 *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 @page{size:A4;margin:0}
 :root{
@@ -81,6 +97,11 @@ body{background:#333;font-family:'Barlow';color:var(--paper)}
 .card h3{font-family:'Oswald';font-weight:700;font-size:9.5pt;letter-spacing:.14em;
   text-transform:uppercase;color:var(--gold);margin-bottom:1.8mm}
 .card p{font-size:9.5pt;color:var(--muted);line-height:1.5}
+.grid{display:grid;gap:4mm}
+.tile{border:1px solid var(--line);background:var(--panel);border-radius:2mm;padding:4mm 4.5mm}
+.tile b{display:block;font-family:'Anton';font-weight:400;font-size:17pt;color:var(--gold)}
+.tile span{font-family:'Oswald';font-weight:500;font-size:7.5pt;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
 .moment{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .prow{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}
 .prow.main{grid-template-columns:repeat(5,1fr);gap:3mm}
@@ -95,13 +116,19 @@ body{background:#333;font-family:'Barlow';color:var(--paper)}
 .prow.main .pcardx i{font-size:6.5pt}
 """
 
+
+def page_html(font_dir: pathlib.Path, body: str) -> str:
+    return (f"<!DOCTYPE html><html><head><meta charset='utf-8'>"
+            f"<style>{base_css(font_dir)}</style></head><body>{body}</body></html>")
+
+
+def build_partners(font_dir: pathlib.Path) -> str:
     main_cards = "".join(
         f'<div class="pcardx"><img src="{IMG}/{f}"><span>{h}</span>' + (f'<i>{r}</i>' if r else '') + '</div>'
         for f, h, r in PARTNERS)
     supp_cards = "".join(
         f'<div class="pcardx"><img src="{IMG}/{f}"><span>{h}</span></div>'
         for f, h in SUPPORTERS)
-
     body = f"""
 <div class="page">
   <div class="rule">The Bigger Picture</div>
@@ -131,28 +158,50 @@ body{background:#333;font-family:'Barlow';color:var(--paper)}
   </div>
   <div class="pfoot"><span>Tia Tandy &mdash; Partnership Programme 2026/27</span><span>06 / 07</span></div>
 </div>"""
-    return f"<!DOCTYPE html><html><head><meta charset='utf-8'><style>{css}</style></head><body>{body}</body></html>"
+    return page_html(font_dir, body)
 
 
-def splice(page_pdf: pathlib.Path):
+def build_numbers(font_dir: pathlib.Path) -> str:
+    def tiles(stats):
+        return "".join(f'<div class="tile"><b>{v}</b><span>{k}</span></div>' for v, k in stats)
+    chips = "".join(f'<span class="chip">{c}</span>' for c in AUDIENCE_CHIPS)
+    body = f"""
+<div class="page">
+  <div class="rule">The Numbers</div>
+  <div class="sub">A highly engaged rugby audience</div>
+  <p class="numlab" style="margin-top:2mm">Instagram &mdash; @tiatandyrugby</p>
+  <div class="grid" style="grid-template-columns:repeat(5,1fr)">{tiles(IG_STATS)}</div>
+  <p class="numlab">TikTok &mdash; @tiatandyrugby</p>
+  <div class="grid" style="grid-template-columns:repeat(5,1fr)">{tiles(TIKTOK_STATS)}</div>
+  <p class="numlab">Who&rsquo;s Watching</p>
+  <div class="chips">{chips}</div>
+  <p class="lede" style="margin-top:6mm">Full platform insights &mdash; screenshots and audience
+  demographics &mdash; available on request.</p>
+  <div class="pfoot"><span>Tia Tandy &mdash; Partnership Programme 2026/27</span><span>03 / 07</span></div>
+</div>"""
+    return page_html(font_dir, body)
+
+
+def splice(page_pdf: pathlib.Path, page_number: int):
     from pypdf import PdfReader, PdfWriter
     pack = PdfReader(str(PACK))
     new_page = PdfReader(str(page_pdf))
     assert len(pack.pages) == 7 and len(new_page.pages) == 1
     out = PdfWriter()
     for i, pg in enumerate(pack.pages):
-        out.add_page(new_page.pages[0] if i == 5 else pg)
+        out.add_page(new_page.pages[0] if i == page_number - 1 else pg)
     with open(PACK, "wb") as f:
         out.write(f)
-    print(f"spliced page 6 into {PACK} ({PACK.stat().st_size} bytes)")
+    print(f"spliced page {page_number} into {PACK} ({PACK.stat().st_size} bytes)")
 
 
 if __name__ == "__main__":
     if sys.argv[1] == "--splice":
-        splice(pathlib.Path(sys.argv[2]))
+        splice(pathlib.Path(sys.argv[2]), int(sys.argv[3]) if len(sys.argv) > 3 else 6)
     else:
         font_dir, work_dir = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
-        html = build_html(font_dir)
-        dest = work_dir / "p6.html"
+        which = sys.argv[3] if len(sys.argv) > 3 else "partners"
+        html = build_numbers(font_dir) if which == "numbers" else build_partners(font_dir)
+        dest = work_dir / "page.html"
         dest.write_text(html)
-        print(f"wrote {dest} ({len(html)} bytes)")
+        print(f"wrote {dest} ({len(html)} bytes) [{which}]")
