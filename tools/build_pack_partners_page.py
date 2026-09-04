@@ -27,6 +27,7 @@ PARTNERS = [
     ("logo-aurion.png", "@aurion.london", "Mayfair &middot; London"),
     ("logo-primova.png", "@primovaplus", ""),  # strapline lives in the logo itself
     ("logo-bodymasters.png", "@the_body_masters", "Sports injury &amp; physio"),
+    ("logo-katesclothing.png", "@katesclothinghq", ""),
 ]
 SUPPORTERS = [
     ("logo-jackvenom.jpg", "@jackvenomco"),
