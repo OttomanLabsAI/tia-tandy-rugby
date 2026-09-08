@@ -316,6 +316,21 @@ a.logo-slot:hover,.logo-slot:hover{border-color:var(--gold-line);color:var(--gol
 .fx-ko{font-family:var(--cond);font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .fx.past{opacity:.4}
 
+/* ---- match reviews ---- */
+.review{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:34px 36px 28px;margin-bottom:44px}
+.review-date{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.scoreline{font-family:var(--display);font-weight:400;font-size:clamp(24px,3.6vw,40px);line-height:1.15;text-transform:uppercase;letter-spacing:.015em;color:var(--paper)}
+.scoreline .score{color:var(--gold)}
+.scoreline .dash{color:var(--muted);margin:0 6px}
+.review-chips{margin-top:18px}
+.chip.gold{background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#0B0B0C;border-color:var(--gold);font-weight:700}
+.review-video{max-width:430px;margin:28px auto 6px}
+.review-video video{width:100%;display:block;background:#000;border:1px solid var(--gold-line);border-bottom:4px solid var(--gold);border-radius:4px}
+.review-body{max-width:720px;margin:22px auto 0}
+.review-body p{margin-bottom:16px;color:var(--paper)}
+.review-body p:last-child{margin-bottom:0}
+.fill-note a{color:var(--gold)}
+
 /* ---- video embeds ---- */
 .video-embed{
   position:relative;aspect-ratio:16/9;background:#000;
